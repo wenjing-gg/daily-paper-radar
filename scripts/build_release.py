@@ -12,7 +12,7 @@ def release_files():
     for directory, extensions in [('scripts', {'.py', '.sh', '.ps1'}), ('tests', {'.py'}), ('docs', {'.md'}), ('examples', {'.md', '.json'}), ('.github', {'.yml', '.md'})]:
         files.extend(p for p in (ROOT / directory).rglob('*') if p.is_file() and p.suffix in extensions and '__pycache__' not in p.parts)
     # 展示资源采用明确清单，避免打包无关素材。
-    for name in ('assets/banner.png', 'assets/logo.png', 'assets/screenshots/README.md',
+    for name in ('assets/banner.png', 'assets/logo.png',
                  'assets/screenshots/feishu-digest-zh.png', 'assets/screenshots/feishu-digest-en.png',
                  'assets/screenshots/feishu-paper-detail-zh.png', 'assets/screenshots/feishu-archive-zh.png'):
         if (ROOT / name).is_file():

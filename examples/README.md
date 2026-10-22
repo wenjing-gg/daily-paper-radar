@@ -14,6 +14,6 @@ python3 scripts/render_demo.py
 python3 scripts/render_demo.py --language en
 ```
 
-Windows 使用 `python`。结果位于 `state/demo/`，含完整日报、群聊正文和飞书卡片 JSON；不会联网、调用模型或发送消息。真实效果截图的路径和命名见 [截图说明](../assets/screenshots/README.md)。
+Windows 使用 `python`。结果位于 `state/demo/`，含完整日报、群聊正文和飞书卡片 JSON；不会联网、调用模型或发送消息。实际推送效果见 [项目首页](../README.zh-CN.md#日报长什么样)。
 
 `summary_cn` 是为兼容旧数据保留的字段名；英文模式也使用此字段保存英文摘要，不要根据字段名判断实际语言。

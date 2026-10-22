@@ -21,7 +21,7 @@
 
 三种用法：**GitHub Actions 云端定时**（电脑关机也运行）、**Windows / macOS 本地定时**、**Claude Code / Codex skill**（随时手动分析或深读）。
 
-先看 **[中文日报样例](examples/digest-full.zh.md)** · **[英文日报样例](examples/digest-full.en.md)**，无需配置密钥。样例为固定排版演示，实际飞书截图见 [截图说明](assets/screenshots/README.md)。
+先看 **[中文日报样例](examples/digest-full.zh.md)** · **[英文日报样例](examples/digest-full.en.md)**，无需配置密钥。样例为固定排版演示，实际飞书截图见下方「日报长什么样」。
 
 ## 特点
 
