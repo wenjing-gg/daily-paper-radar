@@ -127,6 +127,6 @@ Setup steps: [document archive guide](feishu-archive.md) (Simplified Chinese). T
 - **Changed layout**: run `reissue` to re-analyze and resend the previous batch. This incurs model charges and new messages.
 - If a resend fails, do not run `reissue` again. Use `all` to resume unfinished analysis (per-paper caches are reused), or `publish` when analysis is complete and only delivery failed.
 - If the archive document was deleted, restore it from the recycle bin or create a new one, grant the app edit access, and update `FEISHU_DOC_ID`. The program never creates or deletes documents on its own.
-## 日报语言
+## Digest language
 
-在仓库 Variables 中设置 `DIGEST_LANGUAGE`：`zh` 为中文（默认），`en` 为英文。输出包括模型分析、阅读建议和卡片固定文案。自定义 `DIGEST_TITLE` 及模板不自动翻译；存在待发批次时请先完成，再切换语言。
+Set the repository variable `DIGEST_LANGUAGE` to `zh` for Chinese (default) or `en` for English. This applies to model analysis, reading recommendations, and card labels. Custom `DIGEST_TITLE` values and templates are used as written. Complete any pending batch before switching languages.

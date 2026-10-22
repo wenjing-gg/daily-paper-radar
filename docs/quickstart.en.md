@@ -146,10 +146,10 @@ If you need strict punctuality:
 | `reissue` | Re-analyzes and resends the previous batch | Yes | Yes |
 
 See [the deployment reference](github-actions.en.md) for details.
-## 首次预览与日报语言
+## First preview and digest language
 
-想立即预览时，在 Run workflow 勾选 `allow_peak`，仅允许本次高峰模型调用，可能增加费用。首次 `all` 推送需要即时运行时同样勾选；无需修改定时的谷时设置。
+To preview immediately, select `allow_peak` under Run workflow. This permits peak-hour model calls for this run and may increase costs. Select it for the first `all` run as well if immediate delivery is needed; scheduled settings stay unchanged.
 
-仓库 Variables 的 `DIGEST_LANGUAGE` 可填 `zh` 或 `en`，默认 `zh`。`DIGEST_TITLE` 留空时标题跟随语言；填写后原样保留。若有待发批次，先完成该批次再切换语言；`publish` / `resend_bot` 不会重新生成英文。
+Set the repository variable `DIGEST_LANGUAGE` to `zh` (default) or `en`. Leave `DIGEST_TITLE` empty to use the language-specific default title; custom titles are used as written. Complete pending batches before switching languages. Neither `publish` nor `resend_bot` translates saved digests.
 
-无需密钥可先查看 [日报样例](../examples/README.md)。
+See the [English sample](../examples/digest-full.en.md) or [Chinese sample](../examples/digest-full.zh.md) without configuring credentials.

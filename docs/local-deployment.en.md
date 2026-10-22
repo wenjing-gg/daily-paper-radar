@@ -86,7 +86,7 @@ LLM_BASE_URL=https://api.openai.com/v1
 LLM_MODEL_NAME=your-model-name
 ```
 
-凭据 `LLM_API_KEY` 与 `FEISHU_WEBHOOK` 请通过受控进程环境或密钥管理工具注入。示例不提供凭据赋值行；本地 `.env` 读取仍兼容，但不要将真实文件提交或分享。
+Supply `LLM_API_KEY` and `FEISHU_WEBHOOK` through your process environment or secret manager. Credential assignments are omitted from examples. Local `.env` loading is also supported; never commit or share a file containing credentials.
 
 - `LLM_BASE_URL` accepts OpenAI-compatible and Anthropic-native endpoints. See [Custom models](advanced.md#自定义模型) for URL rules.
 - To send to a Feishu group, set the sink's `enabled` to `true` in `config/profile.json`:
@@ -103,7 +103,7 @@ LLM_MODEL_NAME=your-model-name
 }
 ```
 
-- 签名密钥通过受控环境变量 `FEISHU_SECRET` 注入，并在 sink 中设置 `"secret_env": "FEISHU_SECRET"`。
+- Supply the signing secret through the `FEISHU_SECRET` environment variable and set `"secret_env": "FEISHU_SECRET"` in the sink.
 - Process environment variables take precedence over `.env`. Never paste `.env`, keys, or webhook URLs into chats, issues, or screenshots.
 
 ### 6. Check and preview
@@ -315,10 +315,10 @@ Never replace your `.env`, profile, or `state/` with another user's files.
 - `已有任务正在运行`: a previous run is still active, or a stale lock exists. Confirm no Python process is running before intervening.
 - Model 401 / 404 / timeout, Feishu signature or keyword errors: see [Troubleshooting](troubleshooting.en.md).
 
-## 首次试用与日报语言
+## First preview and digest language
 
-先运行 `python scripts/render_demo.py` 可离线查看中文样例，添加 `--language en` 查看英文样例，不调用模型、不发送消息。
+Run `python scripts/render_demo.py` for an offline Chinese sample, or add `--language en` for English. This does not call a model or send messages.
 
-首次真实预览可运行 `python scripts/run_daily.py --dry-run --allow-peak`。此参数明确允许本次在高峰调用模型，可能增加费用，不修改后续定时设置。
+For a live preview, run `python scripts/run_daily.py --dry-run --allow-peak`. The flag permits peak-hour model calls for this run only, may increase costs, and leaves scheduled settings unchanged.
 
-本地配置 `digest_language` 支持 `zh`（默认中文）与 `en`（英文）。自定义标题和模板不自动翻译。已有待发批次请先完成，再修改语言；只重发不会翻译旧内容。
+Set `digest_language` in your local profile to `zh` (default) or `en`. Custom titles and templates are not translated. Complete pending batches before changing languages; resending does not translate saved content.
