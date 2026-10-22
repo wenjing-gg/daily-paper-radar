@@ -1,0 +1,27 @@
+{
+  "example": true,
+  "note": "固定排版样例，非当日抓取、非模型实测或真实推送记录。",
+  "papers": [
+    {
+      "arxiv_id": "1706.03762",
+      "title": "Attention Is All You Need",
+      "authors": "Ashish Vaswani et al.",
+      "abs_url": "https://arxiv.org/abs/1706.03762",
+      "pdf_url": "https://arxiv.org/pdf/1706.03762",
+      "sources": [
+        "arxiv"
+      ],
+      "relevance": "high",
+      "affiliations": "",
+      "analysis_basis": "abstract",
+      "reading_priority": "deep_read",
+      "short_title": "Attention replaces recurrence for sequence transduction",
+      "one_liner": "Transformer uses attention for sequence transduction.",
+      "summary_cn": "The Transformer replaces recurrent and convolutional components with attention. The abstract reports translation quality and training-efficiency gains on two translation tasks, plus an application to constituency parsing. This reading note is based on the abstract; it does not verify the experiments or code.",
+      "evidence": "The abstract reports 28.4 BLEU for English-to-German translation.",
+      "limitations": "Verify comparable training budgets and isolate the contribution of individual design choices.",
+      "insight_for_us": "Useful for readers studying sequence modeling and attention.",
+      "reading_reason": "Inspect the method and experimental controls before drawing efficiency conclusions."
+    }
+  ]
+}

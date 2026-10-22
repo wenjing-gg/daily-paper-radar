@@ -1,0 +1,21 @@
+state/
+config/profile.json
+config/profile.*.json
+config/.env*
+.env*
+*.log
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+
+!.env.example
+dist/
+
+# 编辑器历史可能保留个人配置和凭据旧副本。
+.history/
+.vscode/
+.idea/
+*.bak
+*.swp
+*~

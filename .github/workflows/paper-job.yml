@@ -1,0 +1,116 @@
+name: 论文流水线共用任务
+on:
+  workflow_call:
+    inputs:
+      operation:
+        type: string
+        required: true
+      late_publish:
+        type: boolean
+        default: false
+      allow_peak:
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: daily-paper-delivery
+  cancel-in-progress: false
+jobs:
+  run:
+    environment: daily-paper-radar
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      TZ: Asia/Shanghai
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: 安装 PDF 首页解析依赖
+        run: python -m pip install -r requirements.txt
+      - name: 生成云端配置
+        env:
+          PAPER_KEYWORDS: ${{ vars.PAPER_KEYWORDS }}
+          PAPER_FOCUS: ${{ vars.PAPER_FOCUS }}
+          PAPER_PREFERENCES: ${{ vars.PAPER_PREFERENCES }}
+          DIGEST_TITLE: ${{ vars.DIGEST_TITLE }}
+          DIGEST_LANGUAGE: ${{ vars.DIGEST_LANGUAGE }}
+          FEISHU_DOC_ID: ${{ secrets.FEISHU_DOC_ID || vars.FEISHU_DOC_ID }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
+          HF_ENABLED: ${{ vars.HF_ENABLED }}
+          HF_LOOKBACK_DAYS: ${{ vars.HF_LOOKBACK_DAYS }}
+          HF_MIN_UPVOTES: ${{ vars.HF_MIN_UPVOTES }}
+          HF_MAX_PAPERS: ${{ vars.HF_MAX_PAPERS }}
+          ARXIV_ENABLED: ${{ vars.ARXIV_ENABLED }}
+          ARXIV_CATEGORIES: ${{ vars.ARXIV_CATEGORIES }}
+          PAPER_METADATA_ENABLED: ${{ vars.PAPER_METADATA_ENABLED }}
+          PDF_AFFILIATION_FALLBACK: ${{ vars.PDF_AFFILIATION_FALLBACK }}
+          SOURCE_GATE_ENABLED: ${{ vars.SOURCE_GATE_ENABLED }}
+          MAX_QS_RANK: ${{ vars.MAX_QS_RANK }}
+          UNKNOWN_INSTITUTION_POLICY: ${{ vars.UNKNOWN_INSTITUTION_POLICY }}
+          CODE_POLICY: ${{ vars.CODE_POLICY }}
+          MAX_METADATA_CANDIDATES: ${{ vars.MAX_METADATA_CANDIDATES }}
+          MAX_LOW_PAPERS: ${{ vars.MAX_LOW_PAPERS }}
+          MAX_DETAILED_PAPERS: ${{ vars.MAX_DETAILED_PAPERS }}
+          LLM_CONCURRENCY: ${{ vars.LLM_CONCURRENCY }}
+          LLM_MAX_PAPERS: ${{ vars.LLM_MAX_PAPERS }}
+          LLM_TIMEOUT_SECONDS: ${{ vars.LLM_TIMEOUT_SECONDS }}
+        run: python scripts/cloud_config.py
+      - name: 恢复上次状态
+        id: restore
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/cloud_state.py restore
+      - name: 执行指定阶段
+        id: pipeline
+        env:
+          RADAR_OPERATION: ${{ inputs.operation }}
+          RADAR_SCHEDULE: ${{ github.event.schedule }}
+          PUBLISH_TIME_BEIJING: ${{ vars.PUBLISH_TIME_BEIJING }}
+          ALLOW_LATE_PUBLISH: ${{ inputs.late_publish }}
+          ALLOW_PEAK_RUN: ${{ inputs.allow_peak }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL_NAME: ${{ secrets.LLM_MODEL_NAME }}
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_DOC_ID: ${{ secrets.FEISHU_DOC_ID || vars.FEISHU_DOC_ID }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
+          LLM_OFFPEAK_ONLY: ${{ vars.LLM_OFFPEAK_ONLY }}
+          LLM_BILLING_TIMEZONE: ${{ vars.LLM_BILLING_TIMEZONE }}
+          LLM_PEAK_WINDOWS: ${{ vars.LLM_PEAK_WINDOWS }}
+          LLM_PEAK_WEEKDAYS: ${{ vars.LLM_PEAK_WEEKDAYS }}
+          LLM_OFFPEAK_HOLIDAYS: ${{ vars.LLM_OFFPEAK_HOLIDAYS }}
+          LLM_PEAK_GUARD_MINUTES: ${{ vars.LLM_PEAK_GUARD_MINUTES }}
+          ARXIV_FRESHNESS_PRIORITY: ${{ vars.ARXIV_FRESHNESS_PRIORITY }}
+          WINTER_PEAK_UNTIL: ${{ vars.WINTER_PEAK_UNTIL }}
+          MAX_DIGEST_AGE_HOURS: ${{ vars.MAX_DIGEST_AGE_HOURS }}
+        run: python scripts/cloud_run.py "$RADAR_OPERATION"
+      - name: 保存恢复所需的状态
+        if: always() && steps.restore.outcome == 'success' && steps.pipeline.outcome != 'skipped' && inputs.operation != 'preview' && inputs.operation != 'check'
+        run: python scripts/cloud_state.py snapshot
+      - name: 上传状态（包含待发日报及单篇缓存）
+        if: always() && hashFiles('state/artifact/cloud.json') != ''
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: radar-state
+          overwrite: true
+          path: state/artifact/
+          retention-days: 90
+          if-no-files-found: error
+      - name: 上传预览
+        if: success() && inputs.operation == 'preview'
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: paper-preview
+          overwrite: true
+          path: state/preview*
+          retention-days: 7
+          if-no-files-found: error

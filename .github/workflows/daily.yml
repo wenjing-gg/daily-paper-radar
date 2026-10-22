@@ -1,0 +1,32 @@
+name: 每日论文推送
+on:
+  schedule:
+    # 全部显式使用 UTC；代码按北京时间决定分析、等待或投递。
+    # 北京时间 08:10–11:55 每 15 分钟恢复检查；冬令时 09:10 才开始分析。
+    - cron: '10,25,40,55 0-3 * * *'
+    # 北京时间 09:30 主推送。
+    - cron: '30 1 * * *'
+    # 北京时间 12:17、18:17，错过上午时按低峰规则补分析并投递。
+    - cron: '17 4,10 * * *'
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: 'preview=预览；analyze=只生成；publish=只推送；all=立即生成并推送；check=只检查配置；reissue=重新分析重发；resend_bot=只重发群消息（不调模型）；tick=按定时规则恢复'
+        type: choice
+        default: preview
+        options: [preview, analyze, publish, all, check, reissue, resend_bot, tick]
+      allow_peak:
+        description: '仅本次允许高峰模型调用（可能按高峰价格计费）'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+jobs:
+  daily:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && (github.event_name == 'workflow_dispatch' || vars.DAILY_ENABLED == 'true')
+    uses: ./.github/workflows/paper-job.yml
+    with:
+      operation: ${{ github.event_name == 'schedule' && 'tick' || inputs.operation }}
+      allow_peak: ${{ github.event_name == 'workflow_dispatch' && inputs.allow_peak }}
+    secrets: inherit

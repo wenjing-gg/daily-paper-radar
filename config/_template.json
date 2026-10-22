@@ -1,0 +1,72 @@
+{
+  "_digest_language_说明": "日报内容与固定文案的语言：zh=中文（默认），en=英文。自定义标题和模板请使用对应语言。",
+  "digest_language": "zh",
+  "_填写说明": "以“_”开头的字段都是中文说明，不参与筛选，可保留或删除。只修改对应配置值；JSON 不支持 // 注释。",
+  "_focus_description_说明": "选填：在下一项的双引号内填写关注方向，例如“大模型推理、智能体、RAG”。不需要个人研究想法；不填就保留空字符串。",
+  "focus_description": "",
+  "_paper_preferences_说明": "选填：填写想看或不想看的论文，例如“优先有实验对比的方法论文，不重点看综述”。没有要求就留空。",
+  "paper_preferences": "",
+  "_keywords_说明": "填写想关注的英文关键词。下面是通用示例，直接替换或删除；只填关键词也能使用。默认 HF 会把关键词交给 LLM 判断主题，不要求字面命中。",
+  "keywords": [
+    "large language model",
+    "reasoning",
+    "agent"
+  ],
+  "_sources_说明": "选择论文来源。默认 Hugging Face 精选；需要更多 arXiv 新论文时，把 arxiv.enabled 改成 true，并填写 keywords。",
+  "sources": {
+    "huggingface": {
+      "enabled": true,
+      "lookback_days": 3,
+      "min_upvotes": 0,
+      "max_papers": 20,
+      "keyword_filter": false,
+      "_说明": "lookback_days=最近几天（1–14）；min_upvotes=最低票数；max_papers=最多选几篇候选；keyword_filter=true 时先按英文关键词字面过滤，默认 false 由 LLM 判断。"
+    },
+    "arxiv": {
+      "enabled": false
+    }
+  },
+  "_categories_说明": "仅 arXiv 来源使用：cs.AI=人工智能，cs.CL=自然语言处理，cs.LG=机器学习。通常不用修改。",
+  "categories": [
+    "cs.AI",
+    "cs.CL",
+    "cs.LG"
+  ],
+  "_llm_enrich_说明": "默认 api：在 .env 填 LLM_BASE_URL、LLM_API_KEY、LLM_MODEL_NAME。也可改为 claude_code 或 codex，使用该电脑已登录的 CLI。",
+  "llm_enrich": {
+    "backend": "api",
+    "api": {
+      "max_papers": 100
+    }
+  },
+  "_sinks_说明": "飞书推送开关：把 enabled 改为 true，并在 .env 填 FEISHU_WEBHOOK。开启签名验证时，再添加 secret_env 字段并填对应密钥。",
+  "sinks": [
+    {
+      "type": "feishu_bot",
+      "enabled": false,
+      "webhook_env": "FEISHU_WEBHOOK"
+    }
+  ],
+  "_resolve_orgs_说明": "是否额外下载材料识别机构。false 更快，通常不用修改。",
+  "resolve_orgs": false,
+  "_paper_metadata_说明": "读取 arXiv HTML 作者栏和摘要，补充一作机构及代码链接；无法可靠识别时省略标题中的机构，不猜测。会增加抓取时间。",
+  "paper_metadata": {
+    "enabled": true
+  },
+  "_render_说明": "max_detailed 表示日报最多展开几篇，其余保留链接，不影响模型分析的候选数量。",
+  "render": {
+    "max_detailed": 10,
+    "max_low": 5
+  },
+  "_source_gate_说明": "可选来源门槛：在LLM调用前仅保留QS前100高校或白名单团队的一作机构。未知机构默认排除，代码默认优先但不强制。排名/机构不代表论文质量，也不能检测AI写作。",
+  "source_gate": {
+    "enabled": false,
+    "max_qs_rank": 100,
+    "unknown_policy": "reject",
+    "code_policy": "prefer",
+    "max_metadata_candidates": 100,
+    "ranking_file": "config/qs_top100.json",
+    "teams_file": "config/trusted_teams.json",
+    "pdf_affiliation_fallback": false
+  }
+}

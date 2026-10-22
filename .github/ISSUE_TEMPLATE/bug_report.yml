@@ -1,0 +1,27 @@
+name: 问题反馈 / Bug report
+description: 提供可复现的问题，不粘贴密钥或私有日志。
+body:
+  - type: input
+    id: version
+    attributes:
+      label: 版本或提交 SHA
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 运行环境
+      description: Windows / macOS / Linux / GitHub Actions，以及 Python 版本。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤、预期行为与实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 脱敏错误信息
+      description: 不提供 API 密钥、机器人地址、签名密钥或完整私有配置。

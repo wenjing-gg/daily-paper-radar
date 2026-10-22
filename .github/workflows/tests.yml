@@ -1,0 +1,35 @@
+name: 跨平台测试
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-24.04]
+        python: ['3.10', '3.12']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python -m compileall -q scripts tests
+      - run: python scripts/render_demo.py
+      - run: python scripts/render_demo.py --language en
+      - run: python scripts/build_release.py
+      - name: PowerShell 语法检查
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: |
+          Get-ChildItem scripts\*.ps1 | ForEach-Object {
+            $ParseErrors = $null
+            $Tokens = $null
+            [System.Management.Automation.Language.Parser]::ParseFile($_.FullName, [ref]$Tokens, [ref]$ParseErrors) | Out-Null
+            if ($ParseErrors.Count) { throw $ParseErrors }
+          }

@@ -1,0 +1,771 @@
+{
+  "edition": 2027,
+  "retrieved_at": "2026-09-29",
+  "source": "https://www.qs-topuniversities.cn/en/university-rankings/world-university-rankings/2027",
+  "description": "QS 世界大学综合排名前100（含并列）；仅保存机构名称、名次与匹配别名，非学科排名。",
+  "universities": [
+    {
+      "name": "Massachusetts Institute of Technology (MIT)",
+      "rank": 1,
+      "aliases": [
+        "Massachusetts Institute of Technology (MIT)",
+        "Massachusetts Institute of Technology",
+        "MIT"
+      ]
+    },
+    {
+      "name": "Imperial College London",
+      "rank": 2,
+      "aliases": [
+        "Imperial College London"
+      ]
+    },
+    {
+      "name": "Stanford University",
+      "rank": 2,
+      "aliases": [
+        "Stanford University"
+      ]
+    },
+    {
+      "name": "University of Oxford",
+      "rank": 4,
+      "aliases": [
+        "University of Oxford"
+      ]
+    },
+    {
+      "name": "Harvard University",
+      "rank": 5,
+      "aliases": [
+        "Harvard University"
+      ]
+    },
+    {
+      "name": "University of Cambridge",
+      "rank": 6,
+      "aliases": [
+        "University of Cambridge"
+      ]
+    },
+    {
+      "name": "California Institute of Technology (Caltech)",
+      "rank": 7,
+      "aliases": [
+        "California Institute of Technology (Caltech)",
+        "California Institute of Technology",
+        "Caltech"
+      ]
+    },
+    {
+      "name": "ETH Zurich - Swiss Federal Institute of Technology",
+      "rank": 8,
+      "aliases": [
+        "ETH Zurich - Swiss Federal Institute of Technology",
+        "ETH Zurich",
+        "ETH Zürich"
+      ]
+    },
+    {
+      "name": "UCL",
+      "rank": 8,
+      "aliases": [
+        "UCL",
+        "University College London"
+      ]
+    },
+    {
+      "name": "National University of Singapore (NUS)",
+      "rank": 10,
+      "aliases": [
+        "National University of Singapore (NUS)",
+        "National University of Singapore"
+      ]
+    },
+    {
+      "name": "The University of Hong Kong",
+      "rank": 11,
+      "aliases": [
+        "The University of Hong Kong",
+        "University of Hong Kong"
+      ]
+    },
+    {
+      "name": "Nanyang Technological University, Singapore (NTU)",
+      "rank": 12,
+      "aliases": [
+        "Nanyang Technological University, Singapore (NTU)",
+        "Nanyang Technological University, Singapore",
+        "Nanyang Technological University"
+      ]
+    },
+    {
+      "name": "Peking University",
+      "rank": 13,
+      "aliases": [
+        "Peking University"
+      ]
+    },
+    {
+      "name": "Tsinghua University",
+      "rank": 14,
+      "aliases": [
+        "Tsinghua University"
+      ]
+    },
+    {
+      "name": "University of Pennsylvania",
+      "rank": 15,
+      "aliases": [
+        "University of Pennsylvania"
+      ]
+    },
+    {
+      "name": "Cornell University",
+      "rank": 16,
+      "aliases": [
+        "Cornell University"
+      ]
+    },
+    {
+      "name": "Yale University",
+      "rank": 16,
+      "aliases": [
+        "Yale University"
+      ]
+    },
+    {
+      "name": "The Chinese University of Hong Kong (CUHK)",
+      "rank": 18,
+      "aliases": [
+        "The Chinese University of Hong Kong (CUHK)",
+        "The Chinese University of Hong Kong",
+        "Chinese University of Hong Kong"
+      ]
+    },
+    {
+      "name": "The University of New South Wales (UNSW Sydney)",
+      "rank": 19,
+      "aliases": [
+        "The University of New South Wales (UNSW Sydney)",
+        "The University of New South Wales",
+        "University of New South Wales"
+      ]
+    },
+    {
+      "name": "Johns Hopkins University",
+      "rank": 20,
+      "aliases": [
+        "Johns Hopkins University"
+      ]
+    },
+    {
+      "name": "University of California, Berkeley (UCB)",
+      "rank": 20,
+      "aliases": [
+        "University of California, Berkeley (UCB)",
+        "University of California, Berkeley",
+        "UC Berkeley"
+      ]
+    },
+    {
+      "name": "EPFL",
+      "rank": 22,
+      "aliases": [
+        "EPFL",
+        "Ecole Polytechnique Federale de Lausanne"
+      ]
+    },
+    {
+      "name": "The University of Melbourne",
+      "rank": 22,
+      "aliases": [
+        "The University of Melbourne",
+        "University of Melbourne"
+      ]
+    },
+    {
+      "name": "University of Chicago",
+      "rank": 24,
+      "aliases": [
+        "University of Chicago"
+      ]
+    },
+    {
+      "name": "Technical University of Munich",
+      "rank": 25,
+      "aliases": [
+        "Technical University of Munich"
+      ]
+    },
+    {
+      "name": "Fudan University",
+      "rank": 26,
+      "aliases": [
+        "Fudan University"
+      ]
+    },
+    {
+      "name": "Princeton University",
+      "rank": 27,
+      "aliases": [
+        "Princeton University"
+      ]
+    },
+    {
+      "name": "The University of Sydney",
+      "rank": 28,
+      "aliases": [
+        "The University of Sydney",
+        "University of Sydney"
+      ]
+    },
+    {
+      "name": "The Australian National University",
+      "rank": 29,
+      "aliases": [
+        "The Australian National University",
+        "Australian National University"
+      ]
+    },
+    {
+      "name": "McGill University",
+      "rank": 30,
+      "aliases": [
+        "McGill University"
+      ]
+    },
+    {
+      "name": "Monash University",
+      "rank": 31,
+      "aliases": [
+        "Monash University"
+      ]
+    },
+    {
+      "name": "University of Toronto",
+      "rank": 32,
+      "aliases": [
+        "University of Toronto"
+      ]
+    },
+    {
+      "name": "The Hong Kong University of Science and Technology",
+      "rank": 33,
+      "aliases": [
+        "The Hong Kong University of Science and Technology",
+        "Hong Kong University of Science and Technology"
+      ]
+    },
+    {
+      "name": "Université PSL",
+      "rank": 34,
+      "aliases": [
+        "Université PSL"
+      ]
+    },
+    {
+      "name": "The University of Edinburgh",
+      "rank": 35,
+      "aliases": [
+        "The University of Edinburgh",
+        "University of Edinburgh"
+      ]
+    },
+    {
+      "name": "Shanghai Jiao Tong University",
+      "rank": 36,
+      "aliases": [
+        "Shanghai Jiao Tong University"
+      ]
+    },
+    {
+      "name": "King's College London",
+      "rank": 37,
+      "aliases": [
+        "King's College London"
+      ]
+    },
+    {
+      "name": "Seoul National University",
+      "rank": 38,
+      "aliases": [
+        "Seoul National University"
+      ]
+    },
+    {
+      "name": "The University of Tokyo",
+      "rank": 39,
+      "aliases": [
+        "The University of Tokyo",
+        "University of Tokyo"
+      ]
+    },
+    {
+      "name": "The University of Manchester",
+      "rank": 40,
+      "aliases": [
+        "The University of Manchester",
+        "University of Manchester"
+      ]
+    },
+    {
+      "name": "The University of Queensland",
+      "rank": 40,
+      "aliases": [
+        "The University of Queensland",
+        "University of Queensland"
+      ]
+    },
+    {
+      "name": "Yonsei University",
+      "rank": 42,
+      "aliases": [
+        "Yonsei University"
+      ]
+    },
+    {
+      "name": "Columbia University",
+      "rank": 43,
+      "aliases": [
+        "Columbia University"
+      ]
+    },
+    {
+      "name": "Institut Polytechnique de Paris",
+      "rank": 43,
+      "aliases": [
+        "Institut Polytechnique de Paris"
+      ]
+    },
+    {
+      "name": "Northwestern University",
+      "rank": 45,
+      "aliases": [
+        "Northwestern University"
+      ]
+    },
+    {
+      "name": "University of British Columbia",
+      "rank": 45,
+      "aliases": [
+        "University of British Columbia"
+      ]
+    },
+    {
+      "name": "Zhejiang University",
+      "rank": 47,
+      "aliases": [
+        "Zhejiang University"
+      ]
+    },
+    {
+      "name": "Delft University of Technology",
+      "rank": 48,
+      "aliases": [
+        "Delft University of Technology"
+      ]
+    },
+    {
+      "name": "University of California, Los Angeles (UCLA)",
+      "rank": 49,
+      "aliases": [
+        "University of California, Los Angeles (UCLA)",
+        "University of California, Los Angeles",
+        "UCLA"
+      ]
+    },
+    {
+      "name": "The Hong Kong Polytechnic University",
+      "rank": 50,
+      "aliases": [
+        "The Hong Kong Polytechnic University",
+        "Hong Kong Polytechnic University"
+      ]
+    },
+    {
+      "name": "University of Michigan-Ann Arbor",
+      "rank": 51,
+      "aliases": [
+        "University of Michigan-Ann Arbor",
+        "University of Michigan, Ann Arbor"
+      ]
+    },
+    {
+      "name": "City University of Hong Kong",
+      "rank": 52,
+      "aliases": [
+        "City University of Hong Kong"
+      ]
+    },
+    {
+      "name": "Korea University",
+      "rank": 52,
+      "aliases": [
+        "Korea University"
+      ]
+    },
+    {
+      "name": "National Taiwan University (NTU)",
+      "rank": 54,
+      "aliases": [
+        "National Taiwan University (NTU)",
+        "National Taiwan University"
+      ]
+    },
+    {
+      "name": "Carnegie Mellon University",
+      "rank": 55,
+      "aliases": [
+        "Carnegie Mellon University"
+      ]
+    },
+    {
+      "name": "Universiti Malaya (UM)",
+      "rank": 56,
+      "aliases": [
+        "Universiti Malaya (UM)",
+        "Universiti Malaya"
+      ]
+    },
+    {
+      "name": "University of Bristol",
+      "rank": 57,
+      "aliases": [
+        "University of Bristol"
+      ]
+    },
+    {
+      "name": "New York University (NYU)",
+      "rank": 58,
+      "aliases": [
+        "New York University (NYU)",
+        "New York University"
+      ]
+    },
+    {
+      "name": "KU Leuven",
+      "rank": 59,
+      "aliases": [
+        "KU Leuven"
+      ]
+    },
+    {
+      "name": "University of Amsterdam",
+      "rank": 60,
+      "aliases": [
+        "University of Amsterdam"
+      ]
+    },
+    {
+      "name": "Ludwig-Maximilians-Universität München",
+      "rank": 61,
+      "aliases": [
+        "Ludwig-Maximilians-Universität München"
+      ]
+    },
+    {
+      "name": "The London School of Economics and Political Science (LSE)",
+      "rank": 62,
+      "aliases": [
+        "The London School of Economics and Political Science (LSE)",
+        "The London School of Economics and Political Science",
+        "London School of Economics and Political Science"
+      ]
+    },
+    {
+      "name": "King Fahd University of Petroleum & Minerals",
+      "rank": 63,
+      "aliases": [
+        "King Fahd University of Petroleum & Minerals"
+      ]
+    },
+    {
+      "name": "Kyoto University",
+      "rank": 64,
+      "aliases": [
+        "Kyoto University"
+      ]
+    },
+    {
+      "name": "KAIST - Korea Advanced Institute of Science & Technology",
+      "rank": 65,
+      "aliases": [
+        "KAIST - Korea Advanced Institute of Science & Technology",
+        "KAIST",
+        "Korea Advanced Institute of Science and Technology"
+      ]
+    },
+    {
+      "name": "Brown University",
+      "rank": 66,
+      "aliases": [
+        "Brown University"
+      ]
+    },
+    {
+      "name": "The University of Auckland",
+      "rank": 67,
+      "aliases": [
+        "The University of Auckland",
+        "University of Auckland"
+      ]
+    },
+    {
+      "name": "The University of Warwick",
+      "rank": 68,
+      "aliases": [
+        "The University of Warwick",
+        "University of Warwick"
+      ]
+    },
+    {
+      "name": "University of Birmingham",
+      "rank": 68,
+      "aliases": [
+        "University of Birmingham"
+      ]
+    },
+    {
+      "name": "Duke University",
+      "rank": 70,
+      "aliases": [
+        "Duke University"
+      ]
+    },
+    {
+      "name": "Lund University",
+      "rank": 71,
+      "aliases": [
+        "Lund University"
+      ]
+    },
+    {
+      "name": "University of Texas at Austin",
+      "rank": 72,
+      "aliases": [
+        "University of Texas at Austin"
+      ]
+    },
+    {
+      "name": "Sorbonne University",
+      "rank": 73,
+      "aliases": [
+        "Sorbonne University"
+      ]
+    },
+    {
+      "name": "University of Illinois at Urbana-Champaign",
+      "rank": 74,
+      "aliases": [
+        "University of Illinois at Urbana-Champaign",
+        "University of Illinois Urbana-Champaign",
+        "UIUC"
+      ]
+    },
+    {
+      "name": "Trinity College Dublin, The University of Dublin",
+      "rank": 75,
+      "aliases": [
+        "Trinity College Dublin, The University of Dublin",
+        "Trinity College Dublin"
+      ]
+    },
+    {
+      "name": "Université Paris-Saclay",
+      "rank": 76,
+      "aliases": [
+        "Université Paris-Saclay"
+      ]
+    },
+    {
+      "name": "The University of Western Australia",
+      "rank": 77,
+      "aliases": [
+        "The University of Western Australia",
+        "University of Western Australia"
+      ]
+    },
+    {
+      "name": "University of Leeds",
+      "rank": 77,
+      "aliases": [
+        "University of Leeds"
+      ]
+    },
+    {
+      "name": "Adelaide University",
+      "rank": 79,
+      "aliases": [
+        "Adelaide University"
+      ]
+    },
+    {
+      "name": "University of Glasgow",
+      "rank": 80,
+      "aliases": [
+        "University of Glasgow"
+      ]
+    },
+    {
+      "name": "University of California, San Diego (UCSD)",
+      "rank": 81,
+      "aliases": [
+        "University of California, San Diego (UCSD)",
+        "University of California, San Diego",
+        "UC San Diego",
+        "UCSD"
+      ]
+    },
+    {
+      "name": "KTH Royal Institute of Technology",
+      "rank": 82,
+      "aliases": [
+        "KTH Royal Institute of Technology"
+      ]
+    },
+    {
+      "name": "The University of Sheffield",
+      "rank": 82,
+      "aliases": [
+        "The University of Sheffield",
+        "University of Sheffield"
+      ]
+    },
+    {
+      "name": "Universidad de Buenos Aires (UBA)",
+      "rank": 84,
+      "aliases": [
+        "Universidad de Buenos Aires (UBA)",
+        "Universidad de Buenos Aires"
+      ]
+    },
+    {
+      "name": "Durham University",
+      "rank": 85,
+      "aliases": [
+        "Durham University"
+      ]
+    },
+    {
+      "name": "Ruprecht-Karls-Universität Heidelberg",
+      "rank": 86,
+      "aliases": [
+        "Ruprecht-Karls-Universität Heidelberg",
+        "Heidelberg University"
+      ]
+    },
+    {
+      "name": "Politecnico di Milano",
+      "rank": 87,
+      "aliases": [
+        "Politecnico di Milano"
+      ]
+    },
+    {
+      "name": "University of Technology Sydney",
+      "rank": 87,
+      "aliases": [
+        "University of Technology Sydney"
+      ]
+    },
+    {
+      "name": "Uppsala University",
+      "rank": 87,
+      "aliases": [
+        "Uppsala University"
+      ]
+    },
+    {
+      "name": "Nanjing University",
+      "rank": 90,
+      "aliases": [
+        "Nanjing University"
+      ]
+    },
+    {
+      "name": "University of Copenhagen",
+      "rank": 90,
+      "aliases": [
+        "University of Copenhagen"
+      ]
+    },
+    {
+      "name": "Pennsylvania State University",
+      "rank": 92,
+      "aliases": [
+        "Pennsylvania State University"
+      ]
+    },
+    {
+      "name": "University of Washington",
+      "rank": 92,
+      "aliases": [
+        "University of Washington"
+      ]
+    },
+    {
+      "name": "Boston University",
+      "rank": 94,
+      "aliases": [
+        "Boston University"
+      ]
+    },
+    {
+      "name": "Osaka University",
+      "rank": 95,
+      "aliases": [
+        "Osaka University"
+      ]
+    },
+    {
+      "name": "University of Alberta",
+      "rank": 96,
+      "aliases": [
+        "University of Alberta"
+      ]
+    },
+    {
+      "name": "Institute of Science Tokyo",
+      "rank": 97,
+      "aliases": [
+        "Institute of Science Tokyo"
+      ]
+    },
+    {
+      "name": "University of Nottingham",
+      "rank": 97,
+      "aliases": [
+        "University of Nottingham"
+      ]
+    },
+    {
+      "name": "Freie Universitaet Berlin",
+      "rank": 98,
+      "aliases": [
+        "Freie Universitaet Berlin"
+      ]
+    },
+    {
+      "name": "University of Zurich",
+      "rank": 98,
+      "aliases": [
+        "University of Zurich"
+      ]
+    },
+    {
+      "name": "Purdue University",
+      "rank": 100,
+      "aliases": [
+        "Purdue University"
+      ]
+    },
+    {
+      "name": "University College Dublin",
+      "rank": 100,
+      "aliases": [
+        "University College Dublin"
+      ]
+    }
+  ]
+}

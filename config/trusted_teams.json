@@ -1,0 +1,110 @@
+{
+  "description": "可编辑的研究团队准入白名单，不是权威排名；只与已提取的一作机构匹配。",
+  "teams": [
+    {
+      "name": "OpenAI",
+      "aliases": [
+        "OpenAI"
+      ]
+    },
+    {
+      "name": "Anthropic",
+      "aliases": [
+        "Anthropic"
+      ]
+    },
+    {
+      "name": "Google",
+      "aliases": [
+        "Google",
+        "Google DeepMind",
+        "DeepMind"
+      ]
+    },
+    {
+      "name": "Meta",
+      "aliases": [
+        "Meta",
+        "Meta AI",
+        "Facebook AI Research"
+      ]
+    },
+    {
+      "name": "Microsoft",
+      "aliases": [
+        "Microsoft",
+        "Microsoft Research"
+      ]
+    },
+    {
+      "name": "NVIDIA",
+      "aliases": [
+        "NVIDIA"
+      ]
+    },
+    {
+      "name": "Apple",
+      "aliases": [
+        "Apple"
+      ]
+    },
+    {
+      "name": "Amazon",
+      "aliases": [
+        "Amazon",
+        "Amazon Web Services"
+      ]
+    },
+    {
+      "name": "DeepSeek",
+      "aliases": [
+        "DeepSeek"
+      ]
+    },
+    {
+      "name": "阿里巴巴",
+      "aliases": [
+        "Alibaba",
+        "Alibaba Group",
+        "Alibaba DAMO Academy"
+      ]
+    },
+    {
+      "name": "腾讯",
+      "aliases": [
+        "Tencent"
+      ]
+    },
+    {
+      "name": "字节跳动",
+      "aliases": [
+        "ByteDance"
+      ]
+    },
+    {
+      "name": "华为",
+      "aliases": [
+        "Huawei"
+      ]
+    },
+    {
+      "name": "百度",
+      "aliases": [
+        "Baidu"
+      ]
+    },
+    {
+      "name": "上海AI实验室",
+      "aliases": [
+        "Shanghai AI Laboratory"
+      ]
+    },
+    {
+      "name": "北京智源",
+      "aliases": [
+        "Beijing Academy of Artificial Intelligence",
+        "BAAI"
+      ]
+    }
+  ]
+}

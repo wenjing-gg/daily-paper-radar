@@ -1,0 +1,39 @@
+name: 准备版本发布
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: prepare-release
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: 测试并构建公开发布包
+        run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+          python scripts/build_release.py
+      - name: 创建草稿（不自动公开发布）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          RELEASE_VERSION="$(cat VERSION)"
+          gh release create "v${RELEASE_VERSION}" \
+            "dist/daily-paper-radar-${RELEASE_VERSION}.zip" \
+            "dist/daily-paper-radar-${RELEASE_VERSION}.zip.sha256" \
+            --draft --target "$GITHUB_SHA" \
+            --title "daily-paper-radar v${RELEASE_VERSION}" \
+            --notes-file CHANGELOG.md
