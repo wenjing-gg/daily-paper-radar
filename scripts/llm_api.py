@@ -36,7 +36,9 @@ def resolve_settings(cfg):
 
 def build_request(cfg, system, user):
     settings = resolve_settings(cfg)
-    headers = {'Content-Type': 'application/json'}
+    # 部分网关（如 Cloudflare 前置的中转站）拦截 Python 默认 UA（HTTP 403 code 1010），补浏览器 UA。
+    headers = {'Content-Type': 'application/json',
+               'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 daily-paper-radar/1.0'}
     key = os.environ.get('LLM_API_KEY', '').strip()
     payload = {'model': settings['model']}
     if settings['protocol'] == 'anthropic':
