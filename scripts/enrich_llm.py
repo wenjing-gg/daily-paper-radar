@@ -211,9 +211,19 @@ def main() -> int:
                 if not results[i].get('_llm_error'):
                     cache[cache_keys[i]] = results[i]
                     write_json(cache_path, cache)
+                else:
+                    # 记录跨运行失败次数，供下方判断是否降级放行
+                    prev = cache.get(cache_keys[i]) or {}
+                    fails = int(prev.get('_fails', 0)) + 1
+                    cache[cache_keys[i]] = {**papers[i], '_llm_error': results[i]['_llm_error'], '_fails': fails}
+                    write_json(cache_path, cache)
             except Exception as e:
                 log(f"  task {i} crashed: {e}")
                 results[i] = {**papers[i], "_llm_error": type(e).__name__}
+                prev = cache.get(cache_keys[i]) or {}
+                fails = int(prev.get('_fails', 0)) + 1
+                cache[cache_keys[i]] = {**papers[i], '_llm_error': type(e).__name__, '_fails': fails}
+                write_json(cache_path, cache)
 
     out_papers = [r for r in results if r is not None]
     n_high = sum(1 for p in out_papers if p.get("relevance") == "high")
@@ -222,7 +232,14 @@ def main() -> int:
     n_err = sum(1 for p in out_papers if p.get("_llm_error"))
 
     if n_err:
-        raise RuntimeError(f"{n_err} 篇摘要失败，保留批次等待重试")
+        # 瞬时失败保留批次等待重试；同一篇连续多轮批处理仍失败的视为顽固失败，
+        # 降级为低相关（仅列标题）放行，避免单篇模型输出不合规卡死整期日报。
+        pending = [i for i, r in enumerate(results)
+                   if r is not None and r.get('_llm_error')
+                   and int((cache.get(cache_keys[i]) or {}).get('_fails', 0)) < 2]
+        if pending:
+            raise RuntimeError(f"{len(pending)} 篇摘要失败，保留批次等待重试")
+        log(f"{n_err} 篇多轮重试仍失败，降级为低相关放行")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     payload = dict(meta)
